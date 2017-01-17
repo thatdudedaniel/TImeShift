@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TImeShift
+namespace TimeShift
 {
     public partial class Form1 : Form
     {
@@ -17,32 +17,37 @@ namespace TImeShift
             InitializeComponent();
         }
 
-
-
-
         private void button1_Click(object sender, EventArgs e)
         {
-            try
+            if (this.maskedTextBox1.Text == ("")) 
             {
-                int input = Convert.ToInt32(this.maskedTextBox1.Text);
-                int years = input / 12;
-                label1.Text = "" + years;
+              MessageBox.Show("Please Input a number", "Enter Number",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+
+        
+            else
+            {    int input;
+                bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
+                var calc = DateTime.Today.AddMonths(-Math.Abs(input));
+                label1.Text = "" + calc.ToString("MM/yyyy");
+              
             }
-            catch (Exception)
-            {
-                MessageBox.Show("Please Input a number", "Error",
-MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            
+ 
         }
 
+     
 
-
-        private void button2_Click(object sender, EventArgs e)
+       
+private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text ="";
+            label1.Text = "";
             maskedTextBox1.Text = "";
-           
+
         }
+
+        
     }
-}
+   }
+
+
