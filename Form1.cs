@@ -21,7 +21,7 @@ namespace TimeShift
         {
             if (this.maskedTextBox1.Text == ("")) 
             {
-              MessageBox.Show("Please Input a number", "Enter Number",
+              MessageBox.Show("Please Input a Number", "Enter Number",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
             } 
 
