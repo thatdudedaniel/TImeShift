@@ -42,6 +42,13 @@ namespace TimeShift
 
         #endregion
 
+            public void _Clear()
+            {
+             label1.Text = "";
+              maskedTextBox1.Text = "";
+            }
+            
+            
         private void button1_Click(object sender, EventArgs e)
         {
 
@@ -54,8 +61,7 @@ namespace TimeShift
 
         private void button2_Click(object sender, EventArgs e)
         {
-            label1.Text = "";
-            maskedTextBox1.Text = "";
+            _Clear();
 
         }
 
