@@ -32,23 +32,44 @@ namespace TimeShift
 
             else
             {
-                int input;
-                bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
-                var calc = DateTime.Today.AddMonths(-Math.Abs(input));
-                label1.Text = "" + calc.ToString("MM/yyyy");
 
+                int input;
+
+                if (dateTimePicker1.Checked == false)
+                {
+                    bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
+                    var calc = dateTimePicker1.Value.AddMonths(-Math.Abs(input));
+                    label1.Text = "" + calc.ToString("MM/yyyy");
+                }
+
+                else
+                {
+                    if (dateTimePicker1.Checked)
+                    {
+                     
+                        bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
+                        var customcalc = dateTimePicker1.Value.Date.AddMonths(-Math.Abs(input));
+                        label1.Text = "" + customcalc.ToString("MM/yyyy");
+                    }
+
+                
+                }
             }
         }
 
         #endregion
 
-            public void _Clear()
-            {
-             label1.Text = "";
-              maskedTextBox1.Text = "";
-            }
-            
-            
+        public void _Clear()
+
+        {
+
+            label1.Text = "";
+            maskedTextBox1.Text = "";
+            dateTimePicker1.Value = DateTime.Today;
+            dateTimePicker1.Checked = false;
+        }
+
+
         private void button1_Click(object sender, EventArgs e)
         {
 
