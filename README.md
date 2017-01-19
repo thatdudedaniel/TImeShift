@@ -1,4 +1,4 @@
-# TImeShift
+# TimeShift
 A small program that will subtract the number of months from the selected date, results are displayed in whole month/year format.
 
 #How to use:
