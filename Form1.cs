@@ -23,10 +23,10 @@ namespace TimeShift
         public void _magicsauce()
 
         {
-            if (this.maskedTextBox1.Text == (""))
+            if (this.maskedTextBox1.Text == (""))  //Checking to see if the box is empty 
             {
-                MessageBox.Show("Please Input a Number", "Enter Number",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Please Input a Number", "Enter Number", //If blank a message box will display asking to enter a number
+                MessageBoxButtons.OK, MessageBoxIcon.Information); 
             }
 
 
@@ -35,19 +35,21 @@ namespace TimeShift
 
                 int input;
 
-                if (dateTimePicker1.Checked == false)
+                if (dateTimePicker1.Checked == false) // checking to see if the picker is checked or not
                 {
-                    bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
-                    var calc = dateTimePicker1.Value.AddMonths(-Math.Abs(input));
-                    label1.Text = "" + calc.ToString("MM/yyyy");
+                    int.TryParse(this.maskedTextBox1.Text, out input); //Text is entered and parsed into 32 bit integers then passes result
+                    var calc = dateTimePicker1.Value.AddMonths(-Math.Abs(input));//Calculation is preformed, math.abs retruns the absolute value of the decimal
+                    //this uses rhe default datetimepicker value which will always be the current date unless specified with custom date then adds the months value from input
+                    //this is represented as a negative value so the output is positive number
+                    label1.Text = "" + calc.ToString("MM/yyyy");//coverts to month/year format then updates the label with the result
                 }
 
                 else
                 {
-                    if (dateTimePicker1.Checked)
+                    if (dateTimePicker1.Checked)//If checked then a custom date can be selected 
                     {
                      
-                        bool okay = int.TryParse(this.maskedTextBox1.Text, out input);
+                       int.TryParse(this.maskedTextBox1.Text, out input);
                         var customcalc = dateTimePicker1.Value.Date.AddMonths(-Math.Abs(input));
                         label1.Text = "" + customcalc.ToString("MM/yyyy");
                     }
@@ -59,7 +61,7 @@ namespace TimeShift
 
         #endregion
 
-        public void _Clear()
+        public void _Clear() //Resets all controls to default 
 
         {
 
@@ -73,7 +75,7 @@ namespace TimeShift
         private void button1_Click(object sender, EventArgs e)
         {
 
-            _magicsauce();
+            _magicsauce();//Calls method
 
 
         }
@@ -87,7 +89,7 @@ namespace TimeShift
         }
 
         
-    }
+     }
    }
 
 
